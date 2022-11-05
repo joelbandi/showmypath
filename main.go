@@ -22,9 +22,14 @@ func main() {
 		paths := strings.Split(string(out), ":")
 		pathsLen := len(paths)
 
+		resultLines := []string{}
+
 		for i, path := range paths {
-			fmt.Printf("%d. %s%s\n", i+1, indent(i+1, pathsLen), path)
+			result := fmt.Sprintf("%d. %s%s", i+1, indent(i+1, pathsLen), path)
+			resultLines = append(resultLines, result)
 		}
+
+		fmt.Printf(strings.Join(resultLines, "\n"))
 	}
 }
 
